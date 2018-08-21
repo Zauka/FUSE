@@ -1,6 +1,21 @@
 #ifndef __file_syscalls__
 #define __file_syscalls__
 
+#include "macros.h"
+
+#define ZFS_DATA ((struct fuse_info*) fuse_get_context()->private_data)
+#define LOG(...) fprintf(__VA_ARGS__)
+// To log in config-provided log file
+// LOG(ZFS_DATA->log, "message you wanna log with variables %s/%d...", variables)
+
+
+struct fuse_info{
+  FILE* log;
+  char logfile[MAXLEN];
+};
+
+void* zfs_init(struct fuse_conn_info *info);
+
 int zfs_readlink(const char *path, char *link, size_t size);
 int zfs_getattr(const char *path, struct stat *statbuf);
 

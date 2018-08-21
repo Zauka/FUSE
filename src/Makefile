@@ -6,4 +6,4 @@ file_syscalls.o: file_syscalls.c
 
 .PHONY: clean
 clean:
-	rm -f *.o net_client
+	rm -f ../bin/*.o net_client

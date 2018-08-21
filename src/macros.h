@@ -8,6 +8,7 @@
 #define EMPTY_DIR "empty"
 
 #define DELIMS  ",= "
+#define KEY_LOGFILE "errorlog"
 #define KEY_DISKNAME "diskname"
 #define KEY_MOUNT "mountpoint"
 #define KEY_SERVERS "servers"
