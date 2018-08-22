@@ -12,6 +12,7 @@
 struct fuse_info{
   FILE* log;
   char logfile[MAXLEN];
+  char start_dir[MAXLEN];
 };
 
 void* zfs_init(struct fuse_conn_info *info);
@@ -31,6 +32,12 @@ int zfs_unlink(const char *path);
 int zfs_release(const char *path, struct fuse_file_info *fi);
 int zfs_releasedir(const char *path, struct fuse_file_info *fi);
 int zfs_rename(const char *path, const char *newpath);
+
+void zfs_destroy(void *userdata);
+
+// real_path should have enough space already allocated to
+// write down corresponding string
+void gen_real_path(char* real_path, const char* fuse_path);
 
 #endif
 

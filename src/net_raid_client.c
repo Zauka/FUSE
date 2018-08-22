@@ -13,6 +13,8 @@
 
 static struct fuse_operations zfs_oper = {
   .init = zfs_init,
+  .destroy = zfs_destroy,
+  
   .open		= zfs_open,
 	.getattr	= zfs_getattr,
   .opendir = zfs_opendir,
@@ -73,7 +75,6 @@ int parse_config_file (int argc, char *argv[], struct conf_struct* info)
 
 int main(int argc, char *argv[])
 {
-  printf("%d\n", getpid());
   struct conf_struct cfg;
   if (parse_config_file (argc, argv, &cfg) == ERR){
     exit(ERR);
@@ -83,6 +84,7 @@ int main(int argc, char *argv[])
 
   struct fuse_info *info = malloc (sizeof (struct fuse_info));
   strcpy (info->logfile, cfg.logfile);
+  strcpy (info->start_dir, "/home/zaura/Desktop/OS/Final/FUSE/tmp");
 
   char* fuse_args[3] = {argv[0], cfg.mount, NULL};
   printf("mountpoint is \"%s\"\n", fuse_args[1]);
