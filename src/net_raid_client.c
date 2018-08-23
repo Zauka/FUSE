@@ -14,7 +14,7 @@
 static struct fuse_operations zfs_oper = {
   .init = zfs_init,
   .destroy = zfs_destroy,
-  
+
   .open		= zfs_open,
 	.getattr	= zfs_getattr,
   .opendir = zfs_opendir,
@@ -50,6 +50,12 @@ int parse_config_file (int argc, char *argv[], struct conf_struct* info)
 
     if (strcmp (key, KEY_LOGFILE) == 0){
       strcpy (info->logfile, value);
+    } else if (strcmp (key, KEY_CACHE_SIZE) == 0){
+      info->cache_size = atoi (value);
+    } else if (strcmp (key, KEY_CACHE_REPL) == 0){
+      strcpy (info->cache_repl, value);
+    } else if (strcmp (key, KEY_TIMEOUT) == 0){
+      info->timeout = atoi (value);
     } else if (strcmp (key, KEY_DISKNAME) == 0){
       strcpy (info->diskname, value);
     } else if (strcmp (key, KEY_MOUNT) == 0) {
@@ -81,6 +87,12 @@ int main(int argc, char *argv[])
   } else {
     printf("(Config parsing) \t Success \n");
   }
+
+  // % parsing testing %
+  // printf ("@%s@\n@%d@\n@%s@\n@%d@\n@%s@\n@%s@\n@%s@\n@%s@\n@%d@\n",
+  //   cfg.logfile, cfg.cache_size, cfg.cache_repl, cfg.timeout, cfg.diskname,
+  //   cfg.mount, cfg.servers[0], cfg.hotswap, cfg.raid);
+
 
   struct fuse_info *info = malloc (sizeof (struct fuse_info));
   strcpy (info->logfile, cfg.logfile);

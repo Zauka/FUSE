@@ -9,6 +9,9 @@
 
 #define DELIMS  ",= "
 #define KEY_LOGFILE "errorlog"
+#define KEY_CACHE_SIZE "cache_size"
+#define KEY_CACHE_REPL "cache_replacement"
+#define KEY_TIMEOUT "timeout"
 #define KEY_DISKNAME "diskname"
 #define KEY_MOUNT "mountpoint"
 #define KEY_SERVERS "servers"
