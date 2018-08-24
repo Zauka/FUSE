@@ -8,6 +8,12 @@
 
 #define BACKLOG 10
 
+/*
+*   this server implementation taken from provided socket connection example
+*   from OS_2018_Spring, link : https://classroom.google.com/u/0/c/MTIxNTI5NDEyODZa
+*/
+
+
 void client_handler(int cfd) {
     char buf[1024];
     int data_size;

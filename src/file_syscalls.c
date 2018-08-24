@@ -16,10 +16,26 @@
 #include "file_syscalls.h"
 #include "macros.h"
 
+/*
+*   prototypes of this functions were taken from https://www.cs.nmsu.edu/~pfeiffer/fuse-tutorial/
+*
+*   Therefore this content belongs to:
+*   Joseph J. Pfeiffer, Jr., Ph.D.
+*   Emeritus Professor
+*   Department of Computer Science
+*   New Mexico State University
+*   pfeiffer@cs.nmsu.edu
+*/
+
+
 void* zfs_init(struct fuse_conn_info *info)
 {
   ZFS_DATA->log = fopen (ZFS_DATA->logfile, "w");
 
+  /*
+  *   this client implementation taken from provided socket connection example
+  *   from OS_2018_Spring, link : https://classroom.google.com/u/0/c/MTIxNTI5NDEyODZa
+  */
   int sfd;
   struct sockaddr_in addr;
   int ip;
