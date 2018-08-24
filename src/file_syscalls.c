@@ -2,8 +2,14 @@
 #include <stdlib.h>
 #include <string.h>
 #include <unistd.h>
-#include <sys/types.h>
+#include <string.h>
 #include <dirent.h>
+
+#include <sys/types.h>
+#include <sys/socket.h>
+#include <netinet/in.h>
+#include <netinet/ip.h> /* superset of previous */
+#include <arpa/inet.h>
 
 #include <fuse.h>
 
@@ -13,6 +19,24 @@
 void* zfs_init(struct fuse_conn_info *info)
 {
   ZFS_DATA->log = fopen (ZFS_DATA->logfile, "w");
+
+  int sfd;
+  struct sockaddr_in addr;
+  int ip;
+  char buf[1024];
+  sfd = socket(AF_INET, SOCK_STREAM, 0);
+  inet_pton(AF_INET, "127.0.0.1", &ip);
+
+  addr.sin_family = AF_INET;
+  addr.sin_port = htons(5000);
+  addr.sin_addr.s_addr = ip;
+
+  connect(sfd, (struct sockaddr *) &addr, sizeof(struct sockaddr_in));
+  char* buffer = strdup ("are\nyou\nkidding\nme\n?\n\n\n\n\n\n\n\n\n\n\n\n\n");
+  write(sfd, buffer, strlen(buffer)+1);
+  read(sfd, &buf, 1024);
+  printf ("client recieved %s\n", buf);
+  close(sfd);
 
   LOG (ZFS_DATA->log, "Logfile is %s\n", ZFS_DATA->logfile);
   return ZFS_DATA;
