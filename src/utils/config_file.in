@@ -4,7 +4,7 @@ cache_replacement = rlu
 timeout = 10
 
 diskname = STORAGE1
-mountpoint = /home/zaura/Desktop/OS/Final/FUSE/mountdir
+mountpoint = /home/zaura/Desktop/OS/Final/FUSE/bin/mountdir
 raid = 1
 servers = 127.0.0.1:10001, 127.0.0.1:10002
 hotswap = 127.0.0.1:11111

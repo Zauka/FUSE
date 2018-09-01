@@ -7,19 +7,19 @@
 #include <string.h>
 
 #include "net_raid_client.h"
-#include "file_syscalls.h"
-#include "macros.h"
+#include "client_syscalls.h"
+#include "../utils/macros.h"
 
 
-static struct fuse_operations zfs_oper = {
-  .init = zfs_init,
-  .destroy = zfs_destroy,
+static struct fuse_operations client_oper = {
+  .init = client_init,
+  .destroy = client_destroy,
 
-  .open		= zfs_open,
-	.getattr	= zfs_getattr,
-  .opendir = zfs_opendir,
-	.readdir	= zfs_readdir,
-	.read		= zfs_read
+  .open		= client_open,
+	.getattr	= client_getattr,
+  .opendir = client_opendir,
+	.readdir	= client_readdir,
+	.read		= client_read
 };
 
 
@@ -100,6 +100,6 @@ int main(int argc, char *argv[])
 
   char* fuse_args[3] = {argv[0], cfg.mount, NULL};
   printf("mountpoint is \"%s\"\n", fuse_args[1]);
-  int ret = fuse_main(2, fuse_args, &zfs_oper, info);
+  int ret = fuse_main(2, fuse_args, &client_oper, info);
   printf("fuse returned %d\n", ret);
 }

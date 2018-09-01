@@ -1,7 +1,7 @@
 #ifndef __net_raid_client__
 #define __net_raid_client__
 
-#include "macros.h"
+#include "../utils/macros.h"
 
 // we have ONLY ONE disk (forget about the second one atm)
 struct conf_struct{
