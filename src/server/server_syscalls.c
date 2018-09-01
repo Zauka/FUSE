@@ -15,6 +15,7 @@
 #include <arpa/inet.h>
 
 #include "server_syscalls.h"
+#include "net_raid_server.h"
 #include "../utils/macros.h"
 
 /*
@@ -38,10 +39,10 @@ int server_readlink(const char *path, char *link, size_t size)
 
 int server_getattr(const char *path, struct stat *statbuf)
 {
-  char r_path[MAXLEN];
+  char *r_path;
   int ret_val;
 
-  gen_real_path (r_path, path); // generate real path
+  r_path = gen_real_path (path); // generate real path
   // LOG (FUSE_DATA->log, "Issuing opendir on %s\t %s\n", path, r_path);
 
   ret_val = lstat (r_path, statbuf);
@@ -52,11 +53,11 @@ int server_getattr(const char *path, struct stat *statbuf)
 
 int server_open(const char *path, int flags)
 {
-  char r_path[MAXLEN];
+  char *r_path;
   int ret_val = SUCC;
   int fd;
 
-  gen_real_path (r_path, path);
+  r_path = gen_real_path (path);
   // LOG (FUSE_DATA->log, "Issuing open on %s\t %s\n", path, r_path);
 
   fd = open (r_path, flags);
@@ -70,10 +71,10 @@ int server_open(const char *path, int flags)
 
 int server_read(const char *path, char *buf, size_t size, off_t offset)
 {
-  char r_path[MAXLEN];
+  char *r_path; (void)r_path;
   int ret_val = 0;
 
-  gen_real_path (r_path, path);
+  r_path = gen_real_path (path);
   // LOG (FUSE_DATA->log, "Issuing read on %s\t%s\n", path, r_path);
   int file_handle = -1;
   // search for file_handle in v_handles
@@ -104,10 +105,10 @@ int server_rmdir(const char *path)
 int server_opendir(const char *path)
 {
   DIR* dir_ptr;
-  char r_path[MAXLEN];
+  char *r_path;
   int ret_val = SUCC;
 
-  gen_real_path (r_path, path);
+  r_path = gen_real_path (path);
   // LOG (FUSE_DATA->log, "Issuing opendir on %s\t%s\n", path, r_path);
 
   dir_ptr = opendir (r_path);
@@ -121,12 +122,12 @@ int server_opendir(const char *path)
 
 int server_readdir(const char *path, void *buf, off_t offset)
 {
-  DIR* dir_ptr;
-  char r_path[MAXLEN];
-  struct dirent* dir_ent;
+  DIR* dir_ptr; (void)dir_ptr;
+  char *r_path; (void)r_path;
+  struct dirent* dir_ent; (void)dir_ent;
   int ret_val = SUCC;
 
-  gen_real_path (r_path, path);
+  r_path = gen_real_path (path);
   // LOG (FUSE_DATA->log, "Issuing opendir on %s\t%s\n", path, r_path);
 
   // dir_ptr = (DIR*) fi->fh;

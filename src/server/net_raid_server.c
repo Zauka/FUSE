@@ -19,16 +19,16 @@
 
 char* next_token (char **msg, enum Mode mode)
 {
-  char* ret_value = *msg;
+  char* ret_value = *msg; (void) *msg;
 
   if (mode == num_mode) {
     *msg += sizeof (long long); // every integer type should be saved as 8-byte (for simpilcity)
-    *msg ++; // to jump over \0, where new token is starting
+    *msg += 1; // to jump over CHAR_DELIMITER, where new token is starting
   } else if (mode == string_mode) {
     while (**msg != 0){
-      *msg ++;
+      *msg += 1;
     }
-    *msg ++; // to jump over \0, where new token is starting
+    *msg += 1; // to jump over C_DELIM, where new token is starting
   }
 
   return ret_value;
@@ -52,9 +52,9 @@ int v_find (char *name, char *handles[])
   return NONE;
 }
 
-char* gen_real_path (char *path)
+char* gen_real_path (const char *path)
 {
-  return path;
+  return strdup(path);
 }
 
 void msg_analyze (char *msg, char* handles[], int cfd)
@@ -65,15 +65,14 @@ void msg_analyze (char *msg, char* handles[], int cfd)
 // all cases need to call correct system call :) REMINDER
   if (strcmp (syscall_name, SYS_READLINK) == 0) {
 
-    char *link = next_token (&msg, string_mode);
-    size_t val = (size_t) msg;
+    char *link = next_token (&msg, string_mode); (void)link;
+    size_t val = (size_t) msg; (void)val;
   } else if (strcmp (syscall_name, SYS_GETATTR) == 0) {
 
-    struct stat *UNUSED_statbuf = (struct stat*) next_token (&msg, num_mode); (void) UNUSED_statbuf;
   } else if (strcmp (syscall_name, SYS_OPEN) == 0) {
 
     // am etapze marto file_handle mchirdeba
-    int file_handle = v_find (path, handles);
+    int file_handle = v_find (path, handles); (void)file_handle;
   } else if (strcmp (syscall_name, SYS_READ) == 0) {
 
     size_t size = (size_t) next_token (&msg, num_mode);
@@ -87,13 +86,13 @@ void msg_analyze (char *msg, char* handles[], int cfd)
 
   } else if (strcmp (syscall_name, SYS_WRITE) == 0) {
 
-    char *buf = next_token (&msg, string_mode);
-    size_t size = (size_t) next_token (&msg, num_mode);
-    off_t offset = (off_t) next_token (&msg, num_mode);
-    int file_handle = v_find (path, handles);
+    char *buf = next_token (&msg, string_mode); (void)buf;
+    size_t size = (size_t) next_token (&msg, num_mode); (void)size;
+    off_t offset = (off_t) next_token (&msg, num_mode); (void)offset;
+    int file_handle = v_find (path, handles); (void)file_handle;
   } else if (strcmp (syscall_name, SYS_MKDIR) == 0) {
 
-    mode_t mode = (mode_t) next_token (&msg, num_mode);
+    mode_t mode = (int64_t) next_token (&msg, num_mode); (void)mode;
   } else if (strcmp (syscall_name, SYS_READDIR) == 0) {
 
     // TODO: yvela dir_ent-is saxeli unda chamowero da socket-shi gaagzavno
@@ -102,19 +101,19 @@ void msg_analyze (char *msg, char* handles[], int cfd)
 
   } else if (strcmp (syscall_name, SYS_OPENDIR) == 0) {
 
-    int file_handle = (int64_t) next_token (&msg, num_mode);
+    int file_handle = (int64_t) next_token (&msg, num_mode); (void)file_handle;
   } else if (strcmp (syscall_name, SYS_UNLINK) == 0) {
 
 
   } else if (strcmp (syscall_name, SYS_RELEASE) == 0) {
 
-    int file_handle = (int64_t) next_token (&msg, num_mode);
+    int file_handle = (int64_t) next_token (&msg, num_mode); (void)file_handle;
   } else if (strcmp (syscall_name, SYS_RELEASEDIR) == 0) {
 
-    int dir_handle = (int64_t) next_token (&msg, num_mode);
+    int dir_handle = (int64_t) next_token (&msg, num_mode); (void)dir_handle;
   } else if (strcmp (syscall_name, SYS_RENAME) == 0) {
 
-    char *new_path = gen_real_path (next_token (&msg, string_mode));
+    char *new_path = gen_real_path (next_token (&msg, string_mode)); (void)new_path;
 
   }
 }
