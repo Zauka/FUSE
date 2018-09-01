@@ -6,8 +6,11 @@ net_client: ../src/client/net_raid_client.c client_syscalls.o
 client_syscalls.o: ../src/client/client_syscalls.c
 	gcc -Wall -c ../src/client/client_syscalls.c `pkg-config fuse --cflags --libs` -o client_syscalls.o
 
-net_server: ../src/server/net_raid_server.c
-	gcc -Wall ../src/server/net_raid_server.c -o ../bin/net_server
+net_server: ../src/server/net_raid_server.c server_syscalls.o
+	gcc -Wall ../src/server/net_raid_server.c server_syscalls.o -o ../bin/net_server
+
+server_syscalls.o: ../src/server/server_syscalls.c
+	gcc -Wall -c ../src/server/server_syscalls.c -o server_syscalls.o
 
 .PHONY: clean umount rebuild
 clean:

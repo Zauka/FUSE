@@ -7,6 +7,7 @@
 #include <stdlib.h>
 #include <string.h>
 
+#include "net_raid_server.h"
 #include "../utils/macros.h"
 
 #define BACKLOG 10

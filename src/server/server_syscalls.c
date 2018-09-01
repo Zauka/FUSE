@@ -1,11 +1,14 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <unistd.h>
 #include <string.h>
 #include <dirent.h>
 
+#include <sys/stat.h>
 #include <sys/types.h>
+#include <fcntl.h>
+#include <unistd.h>
+
 #include <sys/socket.h>
 #include <netinet/in.h>
 #include <netinet/ip.h> /* superset of previous */
@@ -39,29 +42,29 @@ int server_getattr(const char *path, struct stat *statbuf)
   int ret_val;
 
   gen_real_path (r_path, path); // generate real path
-  LOG (FUSE_DATA->log, "Issuing opendir on %s\t %s\n", path, r_path);
+  // LOG (FUSE_DATA->log, "Issuing opendir on %s\t %s\n", path, r_path);
 
   ret_val = lstat (r_path, statbuf);
 
-  LOG (FUSE_DATA->log, "Completed opendir \n");
+  // LOG (FUSE_DATA->log, "Completed opendir \n");
   return ret_val;
 }
 
-int server_open(const char *path)
+int server_open(const char *path, int flags)
 {
   char r_path[MAXLEN];
   int ret_val = SUCC;
   int fd;
 
   gen_real_path (r_path, path);
-  LOG (FUSE_DATA->log, "Issuing open on %s\t %s\n", path, r_path);
+  // LOG (FUSE_DATA->log, "Issuing open on %s\t %s\n", path, r_path);
 
-  fd = open (r_path, fi->flags);
+  fd = open (r_path, flags);
   if (fd < 0)
     ret_val = ERR;
-  fi->fh = fd;
+  // TODO should add to v_handles array
 
-  LOG (FUSE_DATA->log, "Completed open\n");
+  // LOG (FUSE_DATA->log, "Completed open\n");
   return ret_val;
 }
 
@@ -71,10 +74,12 @@ int server_read(const char *path, char *buf, size_t size, off_t offset)
   int ret_val = 0;
 
   gen_real_path (r_path, path);
-  LOG (FUSE_DATA->log, "Issuing read on %s\t%s\n", path, r_path);
-  ret_val = pread (fi->fh, buf, size, offset);
+  // LOG (FUSE_DATA->log, "Issuing read on %s\t%s\n", path, r_path);
+  int file_handle = -1;
+  // search for file_handle in v_handles
+  ret_val = pread (file_handle, buf, size, offset);
 
-  LOG (FUSE_DATA->log, "Completed read\n");
+  // LOG (FUSE_DATA->log, "Completed read\n");
   return ret_val;
 }
 
@@ -103,18 +108,18 @@ int server_opendir(const char *path)
   int ret_val = SUCC;
 
   gen_real_path (r_path, path);
-  LOG (FUSE_DATA->log, "Issuing opendir on %s\t%s\n", path, r_path);
+  // LOG (FUSE_DATA->log, "Issuing opendir on %s\t%s\n", path, r_path);
 
   dir_ptr = opendir (r_path);
   if (dir_ptr == NULL)
     ret_val = ERR;
-  fi->fh = (uint64_t)dir_ptr;
+  // TODO save dir_ptr to v_handles for further usage
 
-  LOG (FUSE_DATA->log, "Completed opendir \n");
+  // LOG (FUSE_DATA->log, "Completed opendir \n");
   return ret_val;
 }
 
-int server_readdir(const char *path, void *buf, fuse_fill_dir_t filler, off_t offset)
+int server_readdir(const char *path, void *buf, off_t offset)
 {
   DIR* dir_ptr;
   char r_path[MAXLEN];
@@ -122,14 +127,16 @@ int server_readdir(const char *path, void *buf, fuse_fill_dir_t filler, off_t of
   int ret_val = SUCC;
 
   gen_real_path (r_path, path);
-  LOG (FUSE_DATA->log, "Issuing opendir on %s\t%s\n", path, r_path);
+  // LOG (FUSE_DATA->log, "Issuing opendir on %s\t%s\n", path, r_path);
 
-  dir_ptr = (DIR*) fi->fh;
-  while ((dir_ent = readdir (dir_ptr)) != NULL){
-    filler (buf, dir_ent->d_name, NULL, 0);
-  }
+  // dir_ptr = (DIR*) fi->fh;
+  // TODO search dir_ptr in v_handles
+  //      and write to buf
+  // while ((dir_ent = readdir (dir_ptr)) != NULL){
+  //   filler (buf, dir_ent->d_name, NULL, 0);
+  // }
 
-  LOG (FUSE_DATA->log, "completed readdir\n");
+  // LOG (FUSE_DATA->log, "completed readdir\n");
   return ret_val;
 }
 
@@ -159,12 +166,5 @@ int server_rename(const char *path, const char *newpath)
 
 void server_destroy(void *userdata)
 {
-  LOG (FUSE_DATA->log, "Fuse finished working\n");
-}
-
-// arguments(dest, source)
-void gen_real_path(char* real_path, const char* fuse_path)
-{
-  strcpy (real_path, FUSE_DATA->start_dir);
-  strcat (real_path, fuse_path);
+  // LOG (FUSE_DATA->log, "Fuse finished working\n");
 }
