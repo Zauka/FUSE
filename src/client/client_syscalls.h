@@ -13,6 +13,8 @@ struct fuse_info{
   FILE* log;
   char logfile[MAXLEN];
   char start_dir[MAXLEN];
+
+  int sfd; // for socket sending
 };
 
 void* client_init(struct fuse_conn_info *info);

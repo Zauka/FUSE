@@ -1,17 +1,18 @@
 #ifndef __constants__
 #define __constants__
 
-enum Mode { num_mode, string_mode };
-
 #define ERR -1
 #define SUCC 0
 
 #define NONE -1
 #define MAXLEN 128
 #define MAX_OPEN_FILES 30
+#define MAX_MESSAGE_SIZE 1024
 #define EMPTY_DIR "empty"
 
 #define DELIMS  ",= "
+#define C_DELIM '!'
+
 #define KEY_LOGFILE "errorlog"
 #define KEY_CACHE_SIZE "cache_size"
 #define KEY_CACHE_REPL "cache_replacement"

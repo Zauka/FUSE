@@ -1,11 +1,7 @@
-before you go
-set the next goal
+net_server should start with working directory
+and all syscalls should "work" there
 
-before I leave, I'll commit that those are taken from bla bla bla
+Check out brilliant sometimes
 
-but then?
-I need to implement correct communication template
-then according to protocol
-\n axla titqos ert mesijshi modis informacia
-
-int casting and sending through pipe is not working right now
+Increase from time to time.
+Every read/send actually should be FullyRead and FullyWrite

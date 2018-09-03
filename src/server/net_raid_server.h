@@ -5,4 +5,6 @@
 // write down corresponding string
 char* gen_real_path(const char* logical_path);
 
+int msg_analyze (char *msg, int cfd);
+
 #endif

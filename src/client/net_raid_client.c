@@ -15,11 +15,11 @@ static struct fuse_operations client_oper = {
   .init = client_init,
   .destroy = client_destroy,
 
-  .open		= client_open,
-	.getattr	= client_getattr,
-  .opendir = client_opendir,
-	.readdir	= client_readdir,
-	.read		= client_read
+  // .open		= client_open,
+	.getattr	= client_getattr
+  // .opendir = client_opendir,
+	// .readdir	= client_readdir,
+	// .read		= client_read
 };
 
 

@@ -75,12 +75,10 @@ int server_read(const char *path, char *buf, size_t size, off_t offset)
   int ret_val = 0;
 
   r_path = gen_real_path (path);
-  // LOG (FUSE_DATA->log, "Issuing read on %s\t%s\n", path, r_path);
   int file_handle = -1;
   // search for file_handle in v_handles
   ret_val = pread (file_handle, buf, size, offset);
 
-  // LOG (FUSE_DATA->log, "Completed read\n");
   return ret_val;
 }
 
