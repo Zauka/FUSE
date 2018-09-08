@@ -1,340 +1,412 @@
 Logfile is /home/zaura/Desktop/OS/Final/FUSE/log.txt
-Issuing opendir on /.xdg-volume-info	 /home/zaura/Desktop/OS/Final/FUSE/tmp/.xdg-volume-info
-Completed opendir 
-Issuing opendir on /	 /home/zaura/Desktop/OS/Final/FUSE/tmp/
-Completed opendir 
-Issuing opendir on /	/home/zaura/Desktop/OS/Final/FUSE/tmp/
-Completed opendir 
-Issuing opendir on /autorun.inf	 /home/zaura/Desktop/OS/Final/FUSE/tmp/autorun.inf
-Completed opendir 
-Issuing opendir on /.Trash	 /home/zaura/Desktop/OS/Final/FUSE/tmp/.Trash
-Completed opendir 
-Issuing opendir on /.Trash-1000	 /home/zaura/Desktop/OS/Final/FUSE/tmp/.Trash-1000
-Completed opendir 
-Issuing opendir on /	/home/zaura/Desktop/OS/Final/FUSE/tmp/
-completed readdir
-Issuing opendir on /	/home/zaura/Desktop/OS/Final/FUSE/tmp/
-Completed opendir 
-Issuing opendir on /	 /home/zaura/Desktop/OS/Final/FUSE/tmp/
-Completed opendir 
-Issuing opendir on /	/home/zaura/Desktop/OS/Final/FUSE/tmp/
-completed readdir
-Issuing opendir on /	/home/zaura/Desktop/OS/Final/FUSE/tmp/
-Completed opendir 
-Issuing opendir on /	 /home/zaura/Desktop/OS/Final/FUSE/tmp/
-Completed opendir 
-Issuing opendir on /	/home/zaura/Desktop/OS/Final/FUSE/tmp/
-completed readdir
-Issuing opendir on /	/home/zaura/Desktop/OS/Final/FUSE/tmp/
-Completed opendir 
-Issuing opendir on /	 /home/zaura/Desktop/OS/Final/FUSE/tmp/
-Completed opendir 
-Issuing opendir on /	/home/zaura/Desktop/OS/Final/FUSE/tmp/
-completed readdir
-Issuing opendir on /	/home/zaura/Desktop/OS/Final/FUSE/tmp/
-Completed opendir 
-Issuing opendir on /	 /home/zaura/Desktop/OS/Final/FUSE/tmp/
-Completed opendir 
-Issuing opendir on /	/home/zaura/Desktop/OS/Final/FUSE/tmp/
-completed readdir
-Issuing opendir on /	/home/zaura/Desktop/OS/Final/FUSE/tmp/
-Completed opendir 
-Issuing opendir on /	 /home/zaura/Desktop/OS/Final/FUSE/tmp/
-Completed opendir 
-Issuing opendir on /	/home/zaura/Desktop/OS/Final/FUSE/tmp/
-completed readdir
-Issuing opendir on /	/home/zaura/Desktop/OS/Final/FUSE/tmp/
-Completed opendir 
-Issuing opendir on /	 /home/zaura/Desktop/OS/Final/FUSE/tmp/
-Completed opendir 
-Issuing opendir on /	/home/zaura/Desktop/OS/Final/FUSE/tmp/
-completed readdir
-Issuing opendir on /	/home/zaura/Desktop/OS/Final/FUSE/tmp/
-Completed opendir 
-Issuing opendir on /	 /home/zaura/Desktop/OS/Final/FUSE/tmp/
-Completed opendir 
-Issuing opendir on /	/home/zaura/Desktop/OS/Final/FUSE/tmp/
-completed readdir
-Issuing opendir on /	/home/zaura/Desktop/OS/Final/FUSE/tmp/
-Completed opendir 
-Issuing opendir on /	 /home/zaura/Desktop/OS/Final/FUSE/tmp/
-Completed opendir 
-Issuing opendir on /	/home/zaura/Desktop/OS/Final/FUSE/tmp/
-completed readdir
-Issuing opendir on /	/home/zaura/Desktop/OS/Final/FUSE/tmp/
-Completed opendir 
-Issuing opendir on /	 /home/zaura/Desktop/OS/Final/FUSE/tmp/
-Completed opendir 
-Issuing opendir on /	/home/zaura/Desktop/OS/Final/FUSE/tmp/
-completed readdir
-Issuing opendir on /	/home/zaura/Desktop/OS/Final/FUSE/tmp/
-Completed opendir 
-Issuing opendir on /	 /home/zaura/Desktop/OS/Final/FUSE/tmp/
-Completed opendir 
-Issuing opendir on /	/home/zaura/Desktop/OS/Final/FUSE/tmp/
-completed readdir
-Issuing opendir on /	/home/zaura/Desktop/OS/Final/FUSE/tmp/
-Completed opendir 
-Issuing opendir on /	 /home/zaura/Desktop/OS/Final/FUSE/tmp/
-Completed opendir 
-Issuing opendir on /	/home/zaura/Desktop/OS/Final/FUSE/tmp/
-completed readdir
-Issuing opendir on /	/home/zaura/Desktop/OS/Final/FUSE/tmp/
-Completed opendir 
-Issuing opendir on /	 /home/zaura/Desktop/OS/Final/FUSE/tmp/
-Completed opendir 
-Issuing opendir on /	/home/zaura/Desktop/OS/Final/FUSE/tmp/
-completed readdir
-Issuing opendir on /	/home/zaura/Desktop/OS/Final/FUSE/tmp/
-Completed opendir 
-Issuing opendir on /	 /home/zaura/Desktop/OS/Final/FUSE/tmp/
-Completed opendir 
-Issuing opendir on /	/home/zaura/Desktop/OS/Final/FUSE/tmp/
-completed readdir
-Issuing opendir on /	/home/zaura/Desktop/OS/Final/FUSE/tmp/
-Completed opendir 
-Issuing opendir on /	 /home/zaura/Desktop/OS/Final/FUSE/tmp/
-Completed opendir 
-Issuing opendir on /	/home/zaura/Desktop/OS/Final/FUSE/tmp/
-completed readdir
-Issuing opendir on /	/home/zaura/Desktop/OS/Final/FUSE/tmp/
-Completed opendir 
-Issuing opendir on /	 /home/zaura/Desktop/OS/Final/FUSE/tmp/
-Completed opendir 
-Issuing opendir on /	/home/zaura/Desktop/OS/Final/FUSE/tmp/
-completed readdir
-Issuing opendir on /	/home/zaura/Desktop/OS/Final/FUSE/tmp/
-Completed opendir 
-Issuing opendir on /	 /home/zaura/Desktop/OS/Final/FUSE/tmp/
-Completed opendir 
-Issuing opendir on /	/home/zaura/Desktop/OS/Final/FUSE/tmp/
-completed readdir
-Issuing opendir on /	/home/zaura/Desktop/OS/Final/FUSE/tmp/
-Completed opendir 
-Issuing opendir on /	 /home/zaura/Desktop/OS/Final/FUSE/tmp/
-Completed opendir 
-Issuing opendir on /	/home/zaura/Desktop/OS/Final/FUSE/tmp/
-completed readdir
-Issuing opendir on /	/home/zaura/Desktop/OS/Final/FUSE/tmp/
-Completed opendir 
-Issuing opendir on /	 /home/zaura/Desktop/OS/Final/FUSE/tmp/
-Completed opendir 
-Issuing opendir on /	/home/zaura/Desktop/OS/Final/FUSE/tmp/
-completed readdir
-Issuing opendir on /	/home/zaura/Desktop/OS/Final/FUSE/tmp/
-Completed opendir 
-Issuing opendir on /	 /home/zaura/Desktop/OS/Final/FUSE/tmp/
-Completed opendir 
-Issuing opendir on /	/home/zaura/Desktop/OS/Final/FUSE/tmp/
-completed readdir
-Issuing opendir on /	/home/zaura/Desktop/OS/Final/FUSE/tmp/
-Completed opendir 
-Issuing opendir on /	 /home/zaura/Desktop/OS/Final/FUSE/tmp/
-Completed opendir 
-Issuing opendir on /	/home/zaura/Desktop/OS/Final/FUSE/tmp/
-completed readdir
-Issuing opendir on /	/home/zaura/Desktop/OS/Final/FUSE/tmp/
-Completed opendir 
-Issuing opendir on /	 /home/zaura/Desktop/OS/Final/FUSE/tmp/
-Completed opendir 
-Issuing opendir on /	/home/zaura/Desktop/OS/Final/FUSE/tmp/
-completed readdir
-Issuing opendir on /	/home/zaura/Desktop/OS/Final/FUSE/tmp/
-Completed opendir 
-Issuing opendir on /	 /home/zaura/Desktop/OS/Final/FUSE/tmp/
-Completed opendir 
-Issuing opendir on /	/home/zaura/Desktop/OS/Final/FUSE/tmp/
-completed readdir
-Issuing opendir on /autorun.inf	 /home/zaura/Desktop/OS/Final/FUSE/tmp/autorun.inf
-Completed opendir 
-Issuing opendir on /	 /home/zaura/Desktop/OS/Final/FUSE/tmp/
-Completed opendir 
-Issuing opendir on /	 /home/zaura/Desktop/OS/Final/FUSE/tmp/
-Completed opendir 
-Issuing opendir on /	 /home/zaura/Desktop/OS/Final/FUSE/tmp/
-Completed opendir 
-Issuing opendir on /	 /home/zaura/Desktop/OS/Final/FUSE/tmp/
-Completed opendir 
-Issuing opendir on /	 /home/zaura/Desktop/OS/Final/FUSE/tmp/
-Completed opendir 
-Issuing opendir on /	 /home/zaura/Desktop/OS/Final/FUSE/tmp/
-Completed opendir 
-Issuing opendir on /	 /home/zaura/Desktop/OS/Final/FUSE/tmp/
-Completed opendir 
-Issuing opendir on /	 /home/zaura/Desktop/OS/Final/FUSE/tmp/
-Completed opendir 
-Issuing opendir on /	 /home/zaura/Desktop/OS/Final/FUSE/tmp/
-Completed opendir 
-Issuing opendir on /	 /home/zaura/Desktop/OS/Final/FUSE/tmp/
-Completed opendir 
-Issuing opendir on /	 /home/zaura/Desktop/OS/Final/FUSE/tmp/
-Completed opendir 
-Issuing opendir on /	 /home/zaura/Desktop/OS/Final/FUSE/tmp/
-Completed opendir 
-Issuing opendir on /	 /home/zaura/Desktop/OS/Final/FUSE/tmp/
-Completed opendir 
-Issuing opendir on /	 /home/zaura/Desktop/OS/Final/FUSE/tmp/
-Completed opendir 
-Issuing opendir on /	 /home/zaura/Desktop/OS/Final/FUSE/tmp/
-Completed opendir 
-Issuing opendir on /	 /home/zaura/Desktop/OS/Final/FUSE/tmp/
-Completed opendir 
-Issuing opendir on /	 /home/zaura/Desktop/OS/Final/FUSE/tmp/
-Completed opendir 
-Issuing opendir on /	 /home/zaura/Desktop/OS/Final/FUSE/tmp/
-Completed opendir 
-Issuing opendir on /	 /home/zaura/Desktop/OS/Final/FUSE/tmp/
-Completed opendir 
-Issuing opendir on /	 /home/zaura/Desktop/OS/Final/FUSE/tmp/
-Completed opendir 
-Issuing opendir on /	 /home/zaura/Desktop/OS/Final/FUSE/tmp/
-Completed opendir 
-Issuing opendir on /	 /home/zaura/Desktop/OS/Final/FUSE/tmp/
-Completed opendir 
-Issuing opendir on /	 /home/zaura/Desktop/OS/Final/FUSE/tmp/
-Completed opendir 
-Issuing opendir on /	 /home/zaura/Desktop/OS/Final/FUSE/tmp/
-Completed opendir 
-Issuing opendir on /	 /home/zaura/Desktop/OS/Final/FUSE/tmp/
-Completed opendir 
-Issuing opendir on /	 /home/zaura/Desktop/OS/Final/FUSE/tmp/
-Completed opendir 
-Issuing opendir on /	 /home/zaura/Desktop/OS/Final/FUSE/tmp/
-Completed opendir 
-Issuing opendir on /	 /home/zaura/Desktop/OS/Final/FUSE/tmp/
-Completed opendir 
-Issuing opendir on /	 /home/zaura/Desktop/OS/Final/FUSE/tmp/
-Completed opendir 
-Issuing opendir on /	 /home/zaura/Desktop/OS/Final/FUSE/tmp/
-Completed opendir 
-Issuing opendir on /	 /home/zaura/Desktop/OS/Final/FUSE/tmp/
-Completed opendir 
-Issuing opendir on /	 /home/zaura/Desktop/OS/Final/FUSE/tmp/
-Completed opendir 
-Issuing opendir on /	 /home/zaura/Desktop/OS/Final/FUSE/tmp/
-Completed opendir 
-Issuing opendir on /	 /home/zaura/Desktop/OS/Final/FUSE/tmp/
-Completed opendir 
-Issuing opendir on /	 /home/zaura/Desktop/OS/Final/FUSE/tmp/
-Completed opendir 
-Issuing opendir on /	 /home/zaura/Desktop/OS/Final/FUSE/tmp/
-Completed opendir 
-Issuing opendir on /	 /home/zaura/Desktop/OS/Final/FUSE/tmp/
-Completed opendir 
-Issuing opendir on /	 /home/zaura/Desktop/OS/Final/FUSE/tmp/
-Completed opendir 
-Issuing opendir on /	 /home/zaura/Desktop/OS/Final/FUSE/tmp/
-Completed opendir 
-Issuing opendir on /	 /home/zaura/Desktop/OS/Final/FUSE/tmp/
-Completed opendir 
-Issuing opendir on /	 /home/zaura/Desktop/OS/Final/FUSE/tmp/
-Completed opendir 
-Issuing opendir on /	 /home/zaura/Desktop/OS/Final/FUSE/tmp/
-Completed opendir 
-Issuing opendir on /	 /home/zaura/Desktop/OS/Final/FUSE/tmp/
-Completed opendir 
-Issuing opendir on /	 /home/zaura/Desktop/OS/Final/FUSE/tmp/
-Completed opendir 
-Issuing opendir on /	 /home/zaura/Desktop/OS/Final/FUSE/tmp/
-Completed opendir 
-Issuing opendir on /	 /home/zaura/Desktop/OS/Final/FUSE/tmp/
-Completed opendir 
-Issuing opendir on /	 /home/zaura/Desktop/OS/Final/FUSE/tmp/
-Completed opendir 
-Issuing opendir on /	 /home/zaura/Desktop/OS/Final/FUSE/tmp/
-Completed opendir 
-Issuing opendir on /	 /home/zaura/Desktop/OS/Final/FUSE/tmp/
-Completed opendir 
-Issuing opendir on /	 /home/zaura/Desktop/OS/Final/FUSE/tmp/
-Completed opendir 
-Issuing opendir on /	 /home/zaura/Desktop/OS/Final/FUSE/tmp/
-Completed opendir 
-Issuing opendir on /	 /home/zaura/Desktop/OS/Final/FUSE/tmp/
-Completed opendir 
-Issuing opendir on /	 /home/zaura/Desktop/OS/Final/FUSE/tmp/
-Completed opendir 
-Issuing opendir on /	 /home/zaura/Desktop/OS/Final/FUSE/tmp/
-Completed opendir 
-Issuing opendir on /	 /home/zaura/Desktop/OS/Final/FUSE/tmp/
-Completed opendir 
-Issuing opendir on /	 /home/zaura/Desktop/OS/Final/FUSE/tmp/
-Completed opendir 
-Issuing opendir on /	 /home/zaura/Desktop/OS/Final/FUSE/tmp/
-Completed opendir 
-Issuing opendir on /	 /home/zaura/Desktop/OS/Final/FUSE/tmp/
-Completed opendir 
-Issuing opendir on /	 /home/zaura/Desktop/OS/Final/FUSE/tmp/
-Completed opendir 
-Issuing opendir on /	 /home/zaura/Desktop/OS/Final/FUSE/tmp/
-Completed opendir 
-Issuing opendir on /	 /home/zaura/Desktop/OS/Final/FUSE/tmp/
-Completed opendir 
-Issuing opendir on /	 /home/zaura/Desktop/OS/Final/FUSE/tmp/
-Completed opendir 
-Issuing opendir on /	 /home/zaura/Desktop/OS/Final/FUSE/tmp/
-Completed opendir 
-Issuing opendir on /	 /home/zaura/Desktop/OS/Final/FUSE/tmp/
-Completed opendir 
-Issuing opendir on /	 /home/zaura/Desktop/OS/Final/FUSE/tmp/
-Completed opendir 
-Issuing opendir on /	 /home/zaura/Desktop/OS/Final/FUSE/tmp/
-Completed opendir 
-Issuing opendir on /	 /home/zaura/Desktop/OS/Final/FUSE/tmp/
-Completed opendir 
-Issuing opendir on /	 /home/zaura/Desktop/OS/Final/FUSE/tmp/
-Completed opendir 
-Issuing opendir on /	 /home/zaura/Desktop/OS/Final/FUSE/tmp/
-Completed opendir 
-Issuing opendir on /	 /home/zaura/Desktop/OS/Final/FUSE/tmp/
-Completed opendir 
-Issuing opendir on /	 /home/zaura/Desktop/OS/Final/FUSE/tmp/
-Completed opendir 
-Issuing opendir on /	 /home/zaura/Desktop/OS/Final/FUSE/tmp/
-Completed opendir 
-Issuing opendir on /	 /home/zaura/Desktop/OS/Final/FUSE/tmp/
-Completed opendir 
-Issuing opendir on /	 /home/zaura/Desktop/OS/Final/FUSE/tmp/
-Completed opendir 
-Issuing opendir on /	 /home/zaura/Desktop/OS/Final/FUSE/tmp/
-Completed opendir 
-Issuing opendir on /	 /home/zaura/Desktop/OS/Final/FUSE/tmp/
-Completed opendir 
-Issuing opendir on /	 /home/zaura/Desktop/OS/Final/FUSE/tmp/
-Completed opendir 
-Issuing opendir on /	 /home/zaura/Desktop/OS/Final/FUSE/tmp/
-Completed opendir 
-Issuing opendir on /	 /home/zaura/Desktop/OS/Final/FUSE/tmp/
-Completed opendir 
-Issuing opendir on /	 /home/zaura/Desktop/OS/Final/FUSE/tmp/
-Completed opendir 
-Issuing opendir on /	 /home/zaura/Desktop/OS/Final/FUSE/tmp/
-Completed opendir 
-Issuing opendir on /	 /home/zaura/Desktop/OS/Final/FUSE/tmp/
-Completed opendir 
-Issuing opendir on /	 /home/zaura/Desktop/OS/Final/FUSE/tmp/
-Completed opendir 
-Issuing opendir on /	 /home/zaura/Desktop/OS/Final/FUSE/tmp/
-Completed opendir 
-Issuing opendir on /	 /home/zaura/Desktop/OS/Final/FUSE/tmp/
-Completed opendir 
-Issuing opendir on /	 /home/zaura/Desktop/OS/Final/FUSE/tmp/
-Completed opendir 
-Issuing opendir on /	 /home/zaura/Desktop/OS/Final/FUSE/tmp/
-Completed opendir 
-Issuing opendir on /	 /home/zaura/Desktop/OS/Final/FUSE/tmp/
-Completed opendir 
-Issuing opendir on /	 /home/zaura/Desktop/OS/Final/FUSE/tmp/
-Completed opendir 
-Issuing opendir on /	 /home/zaura/Desktop/OS/Final/FUSE/tmp/
-Completed opendir 
-Issuing opendir on /	 /home/zaura/Desktop/OS/Final/FUSE/tmp/
-Completed opendir 
-Issuing opendir on /	 /home/zaura/Desktop/OS/Final/FUSE/tmp/
-Completed opendir 
-Issuing opendir on /	 /home/zaura/Desktop/OS/Final/FUSE/tmp/
-Completed opendir 
-Issuing opendir on /	 /home/zaura/Desktop/OS/Final/FUSE/tmp/
-Completed opendir 
-Issuing opendir on /	 /home/zaura/Desktop/OS/Final/FUSE/tmp/
-Completed opendir 
+Issuing getattr on /.Trash
+Completed getattr with status -1
+
+Issuing getattr on /.Trash-1000
+Completed getattr with status -1
+
+Issuing getattr on /autorun.inf
+Issuing opendir on /
+Completed opendir with status -1
+
+Completed getattr with status 553648128
+
+Issuing getattr on /.xdg-volume-info
+Completed getattr with status -1
+
+Issuing opendir on /
+Completed opendir with status 0
+
+Issuing getattr on /
+Completed getattr with status 0
+
+Issuing readdir on /
+Current recieved dir: .
+Current recieved dir: ..
+Current recieved dir: two
+Current recieved dir: one
+Current recieved dir: 
+completed readdir with status 0
+
+Issuing getattr on /two
+Completed getattr with status 0
+
+Issuing getattr on /one
+Completed getattr with status 0
+
+Issuing opendir on /
+Completed opendir with status 0
+
+Issuing getattr on /
+Completed getattr with status 0
+
+Issuing readdir on /
+Current recieved dir: .
+Current recieved dir: ..
+Current recieved dir: two
+Current recieved dir: one
+Current recieved dir: 
+completed readdir with status 0
+
+Issuing opendir on /
+Completed opendir with status 0
+
+Issuing getattr on /
+Completed getattr with status 0
+
+Issuing readdir on /
+Current recieved dir: .
+Current recieved dir: ..
+Current recieved dir: two
+Current recieved dir: one
+Current recieved dir: 
+completed readdir with status 0
+
+Issuing opendir on /
+Completed opendir with status 0
+
+Issuing getattr on /
+Completed getattr with status 0
+
+Issuing readdir on /
+Current recieved dir: .
+Current recieved dir: ..
+Current recieved dir: two
+Current recieved dir: one
+Current recieved dir: 
+completed readdir with status 0
+
+Issuing opendir on /
+Completed opendir with status 0
+
+Issuing getattr on /
+Completed getattr with status 0
+
+Issuing readdir on /
+Current recieved dir: .
+Current recieved dir: ..
+Current recieved dir: two
+Current recieved dir: one
+Current recieved dir: 
+completed readdir with status 0
+
+Issuing opendir on /
+Completed opendir with status 0
+
+Issuing getattr on /
+Completed getattr with status 0
+
+Issuing readdir on /
+Current recieved dir: .
+Current recieved dir: ..
+Current recieved dir: two
+Current recieved dir: one
+Current recieved dir: 
+completed readdir with status 0
+
+Issuing opendir on /
+Completed opendir with status 0
+
+Issuing getattr on /
+Completed getattr with status 0
+
+Issuing readdir on /
+Current recieved dir: .
+Current recieved dir: ..
+Current recieved dir: two
+Current recieved dir: one
+Current recieved dir: 
+completed readdir with status 0
+
+Issuing opendir on /
+Completed opendir with status 0
+
+Issuing getattr on /
+Completed getattr with status 0
+
+Issuing readdir on /
+Current recieved dir: .
+Current recieved dir: ..
+Current recieved dir: two
+Current recieved dir: one
+Current recieved dir: 
+completed readdir with status 0
+
+Issuing opendir on /
+Completed opendir with status 0
+
+Issuing getattr on /
+Completed getattr with status 0
+
+Issuing readdir on /
+Current recieved dir: .
+Current recieved dir: ..
+Current recieved dir: two
+Current recieved dir: one
+Current recieved dir: 
+completed readdir with status 0
+
+Issuing opendir on /
+Completed opendir with status 0
+
+Issuing getattr on /
+Completed getattr with status 0
+
+Issuing readdir on /
+Current recieved dir: .
+Current recieved dir: ..
+Current recieved dir: two
+Current recieved dir: one
+Current recieved dir: 
+completed readdir with status 0
+
+Issuing opendir on /
+Completed opendir with status 0
+
+Issuing getattr on /
+Completed getattr with status 0
+
+Issuing readdir on /
+Current recieved dir: .
+Current recieved dir: ..
+Current recieved dir: two
+Current recieved dir: one
+Current recieved dir: 
+completed readdir with status 0
+
+Issuing opendir on /
+Completed opendir with status 0
+
+Issuing getattr on /
+Completed getattr with status 0
+
+Issuing readdir on /
+Current recieved dir: .
+Current recieved dir: ..
+Current recieved dir: two
+Current recieved dir: one
+Current recieved dir: 
+completed readdir with status 0
+
+Issuing opendir on /
+Completed opendir with status 0
+
+Issuing getattr on /
+Completed getattr with status 0
+
+Issuing readdir on /
+Current recieved dir: .
+Current recieved dir: ..
+Current recieved dir: two
+Current recieved dir: one
+Current recieved dir: 
+completed readdir with status 0
+
+Issuing opendir on /
+Completed opendir with status 0
+
+Issuing getattr on /
+Completed getattr with status 0
+
+Issuing readdir on /
+Current recieved dir: .
+Current recieved dir: ..
+Current recieved dir: two
+Current recieved dir: one
+Current recieved dir: 
+completed readdir with status 0
+
+Issuing opendir on /
+Completed opendir with status 0
+
+Issuing getattr on /
+Completed getattr with status 0
+
+Issuing readdir on /
+Current recieved dir: .
+Current recieved dir: ..
+Current recieved dir: two
+Current recieved dir: one
+Current recieved dir: 
+completed readdir with status 0
+
+Issuing opendir on /
+Completed opendir with status 0
+
+Issuing getattr on /
+Completed getattr with status 0
+
+Issuing readdir on /
+Current recieved dir: .
+Current recieved dir: ..
+Current recieved dir: two
+Current recieved dir: one
+Current recieved dir: 
+completed readdir with status 0
+
+Issuing opendir on /
+Completed opendir with status 0
+
+Issuing getattr on /
+Completed getattr with status 0
+
+Issuing readdir on /
+Current recieved dir: .
+Current recieved dir: ..
+Current recieved dir: two
+Current recieved dir: one
+Current recieved dir: 
+completed readdir with status 0
+
+Issuing opendir on /
+Completed opendir with status 0
+
+Issuing getattr on /
+Completed getattr with status 0
+
+Issuing readdir on /
+Current recieved dir: .
+Current recieved dir: ..
+Current recieved dir: two
+Current recieved dir: one
+Current recieved dir: 
+completed readdir with status 0
+
+Issuing opendir on /
+Completed opendir with status 0
+
+Issuing getattr on /
+Completed getattr with status 0
+
+Issuing readdir on /
+Current recieved dir: .
+Current recieved dir: ..
+Current recieved dir: two
+Current recieved dir: one
+Current recieved dir: 
+completed readdir with status 0
+
+Issuing opendir on /
+Completed opendir with status 0
+
+Issuing getattr on /
+Completed getattr with status 0
+
+Issuing readdir on /
+Current recieved dir: .
+Current recieved dir: ..
+Current recieved dir: two
+Current recieved dir: one
+Current recieved dir: 
+completed readdir with status 0
+
+Issuing opendir on /
+Completed opendir with status 0
+
+Issuing getattr on /
+Completed getattr with status 0
+
+Issuing readdir on /
+Current recieved dir: .
+Current recieved dir: ..
+Current recieved dir: two
+Current recieved dir: one
+Current recieved dir: 
+completed readdir with status 0
+
+Issuing opendir on /
+Completed opendir with status 0
+
+Issuing getattr on /
+Completed getattr with status 0
+
+Issuing readdir on /
+Current recieved dir: .
+Current recieved dir: ..
+Current recieved dir: two
+Current recieved dir: one
+Current recieved dir: 
+completed readdir with status 0
+
+Issuing getattr on /autorun.inf
+Completed getattr with status -1
+
+Issuing getattr on /
+Completed getattr with status 0
+
+Issuing getattr on /
+Completed getattr with status 0
+
+Issuing opendir on /
+Completed opendir with status 0
+
+Issuing readdir on /
+Current recieved dir: .
+Current recieved dir: ..
+Current recieved dir: two
+Current recieved dir: one
+Current recieved dir: 
+completed readdir with status 0
+
+Issuing getattr on /two
+Completed getattr with status 0
+
+Issuing getattr on /one
+Completed getattr with status 0
+
+Issuing getattr on /
+Completed getattr with status 0
+
+Issuing getattr on /one
+Completed getattr with status 0
+
+Issuing opendir on /one
+Completed opendir with status 0
+
+Issuing readdir on /one
+Current recieved dir: .
+Current recieved dir: ..
+Current recieved dir: 
+completed readdir with status 0
+
+Issuing getattr on /one
+Completed getattr with status 0
+
+Issuing opendir on /
+Completed opendir with status 0
+
+Issuing getattr on /
+Completed getattr with status 0
+
+Issuing readdir on /
+Current recieved dir: .
+Current recieved dir: ..
+Current recieved dir: two
+Current recieved dir: one
+Current recieved dir: 
+completed readdir with status 0
+
+Issuing getattr on /two
+Completed getattr with status 0
+
+Issuing getattr on /one
+Completed getattr with status 0
+
+Issuing opendir on /
+Completed opendir with status 0
+
+Issuing getattr on /
+Completed getattr with status 0
+
+Issuing readdir on /
+Current recieved dir: .
+Current recieved dir: ..
+Current recieved dir: two
+Current recieved dir: one
+Current recieved dir: 
+completed readdir with status 0
+
+Issuing getattr on /
+Completed getattr with status 0
+
 Fuse finished working

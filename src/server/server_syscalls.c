@@ -113,7 +113,6 @@ int server_opendir(const char *path)
   if (dir_ptr == NULL)
     ret_val = ERR;
   // TODO save dir_ptr to v_handles for further usage
-
   // LOG (FUSE_DATA->log, "Completed opendir \n");
   return ret_val;
 }

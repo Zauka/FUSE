@@ -4,9 +4,9 @@
 #include "../utils/macros.h"
 
 #define FUSE_DATA ((struct fuse_info*) fuse_get_context()->private_data)
-#define LOG(...) fprintf(__VA_ARGS__)
 // To log in config-provided log file
 // LOG(FUSE_DATA->log, "message you wanna log with variables %s/%d...", variables)
+#define LOG(...) fprintf(__VA_ARGS__)
 
 
 struct fuse_info{

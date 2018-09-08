@@ -6,12 +6,15 @@
 
 #define NONE -1
 #define MAXLEN 128
-#define MAX_OPEN_FILES 30
+#define MAX_OPEN_FILES 300
 #define MAX_MESSAGE_SIZE 1024
+
+#define SER_STAT_SIZE 132
 #define EMPTY_DIR "empty"
 
 #define DELIMS  ",= "
-#define C_DELIM '!'
+#define C_DELIM ((char)'!') //TODO change back to '\1'
+#define N_DELIM ((char)'\0')
 
 #define KEY_LOGFILE "errorlog"
 #define KEY_CACHE_SIZE "cache_size"

@@ -14,8 +14,8 @@
 #include <fuse.h>
 
 #include "client_syscalls.h"
+#include "../utils/protoc.h"
 #include "../utils/macros.h"
-
 /*
 *   prototypes of this functions were taken from https://www.cs.nmsu.edu/~pfeiffer/fuse-tutorial/
 *
@@ -56,6 +56,7 @@ void* client_init(struct fuse_conn_info *info)
   FUSE_DATA->sfd = sfd;
 
   LOG (FUSE_DATA->log, "Logfile is %s\n", FUSE_DATA->logfile);
+  fflush (FUSE_DATA->log);
   return FUSE_DATA;
 }
 
@@ -65,86 +66,104 @@ int client_readlink(const char *path, char *link, size_t size)
   return SUCC;
 }
 
-void add_token (char* str, const char* token)
-{
-  strcat(str, token);
-  int len = strlen (str);
-  str[len] = C_DELIM;
-  str[len +1] = '\0';
-}
-
 void buf_to_stat (char* buf, struct stat *statbuf)
 {
-  statbuf->st_mode  = *(mode_t*)  buf;        buf += sizeof(mode_t);
-  statbuf->st_ino   = *(ino_t*)   buf;        buf += sizeof(ino_t);
-  statbuf->st_dev   = *(dev_t*)   buf;        buf += sizeof(dev_t);
-  statbuf->st_rdev  = *(dev_t*)   buf;        buf += sizeof(dev_t);
-  statbuf->st_nlink = *(nlink_t*) buf;        buf += sizeof(nlink_t);
-  statbuf->st_uid   = *(uid_t*)   buf;        buf += sizeof(uid_t);
-  statbuf->st_gid   = *(gid_t*)   buf;        buf += sizeof(gid_t);
-  statbuf->st_size  = *(off_t*)   buf;        buf += sizeof(off_t);
+  statbuf->st_mode  = *(mode_t*)  buf;        buf += 1+ sizeof(mode_t);
+  statbuf->st_ino   = *(ino_t*)   buf;        buf += 1+ sizeof(ino_t);
+  statbuf->st_dev   = *(dev_t*)   buf;        buf += 1+ sizeof(dev_t);
+  statbuf->st_rdev  = *(dev_t*)   buf;        buf += 1+ sizeof(dev_t);
+  statbuf->st_nlink = *(nlink_t*) buf;        buf += 1+ sizeof(nlink_t);
+  statbuf->st_uid   = *(uid_t*)   buf;        buf += 1+ sizeof(uid_t);
+  statbuf->st_gid   = *(gid_t*)   buf;        buf += 1+ sizeof(gid_t);
+  statbuf->st_size  = *(off_t*)   buf;        buf += 1+ sizeof(off_t);
 
-  statbuf->st_atim.tv_sec = *(time_t*) buf;   buf += sizeof(time_t);
-  statbuf->st_atim.tv_nsec = *(long*)  buf;   buf += sizeof(long);
-  statbuf->st_mtim.tv_sec = *(time_t*) buf;   buf += sizeof(time_t);
-  statbuf->st_mtim.tv_nsec = *(long*)  buf;   buf += sizeof(long);
-  statbuf->st_ctim.tv_sec = *(time_t*) buf;   buf += sizeof(time_t);
-  statbuf->st_ctim.tv_nsec = *(long*)  buf;   buf += sizeof(long);
+  statbuf->st_atim.tv_sec = *(time_t*) buf;   buf += 1+ sizeof(time_t);
+  statbuf->st_atim.tv_nsec = *(long*)  buf;   buf += 1+ sizeof(long);
+  statbuf->st_mtim.tv_sec = *(time_t*) buf;   buf += 1+ sizeof(time_t);
+  statbuf->st_mtim.tv_nsec = *(long*)  buf;   buf += 1+ sizeof(long);
+  statbuf->st_ctim.tv_sec = *(time_t*) buf;   buf += 1+ sizeof(time_t);
+  statbuf->st_ctim.tv_nsec = *(long*)  buf;   buf += 1+ sizeof(long);
 
-  statbuf->st_blksize = *(blksize_t*) buf;    buf += sizeof(blksize_t);
-  statbuf->st_blocks = *(blkcnt_t*)   buf;    buf += sizeof(blkcnt_t);
+  statbuf->st_blksize = *(blksize_t*) buf;    buf += 1+ sizeof(blksize_t);
+  statbuf->st_blocks = *(blkcnt_t*)   buf;    buf += 1+ sizeof(blkcnt_t);
 }
 
 int client_getattr(const char *path, struct stat *statbuf)
 {
-  char r_path[MAXLEN];
-  int ret_status = SUCC;
+  int ret_status;
+  char *msg = calloc (MAX_MESSAGE_SIZE, sizeof(char));
+  int msg_offset = 0;
 
-  LOG (FUSE_DATA->log, "Issuing getattr on %s\t %s\n", path, r_path);
+  LOG (FUSE_DATA->log, "Issuing getattr on %s\n", path);
+  fflush (FUSE_DATA->log);
 
-  char buf[MAX_MESSAGE_SIZE]; memset(buf, 0, MAX_MESSAGE_SIZE);
-  add_token (buf, SYS_GETATTR);
-  add_token (buf, path);
+  msg_offset += add_string_token (SYS_GETATTR, strlen(SYS_GETATTR), msg + msg_offset);
+  msg_offset += add_string_token (path, strlen(path), msg + msg_offset);
+  strict_write (FUSE_DATA->sfd, msg, msg_offset +1);
 
-  write (FUSE_DATA->sfd, buf, strlen(buf) +1); //TODO FullyWrite
-  read (FUSE_DATA->sfd, buf, MAX_MESSAGE_SIZE); //TODO FullyRead
+  strict_read (FUSE_DATA->sfd, msg, sizeof(ret_status) + sizeof(C_DELIM) + SER_STAT_SIZE + sizeof(N_DELIM));
+  ret_status = *(int*) next_token (&msg, sizeof(int));
+  buf_to_stat (msg, statbuf);
 
-  ret_status = *(int*)buf;
-  buf_to_stat (buf + sizeof(int) +1, statbuf);
-
-  LOG (FUSE_DATA->log, "Completed getattr \n");
+  LOG (FUSE_DATA->log, "Completed getattr with status %d\n\n", ret_status);
+  fflush (FUSE_DATA->log);
   return ret_status;
 }
 
 int client_open(const char *path, struct fuse_file_info *fi)
 {
-  char r_path[MAXLEN];
-  int ret_val = SUCC;
-  int fd;
+  int ret_status = SUCC;
 
-  gen_real_path (r_path, path);
-  LOG (FUSE_DATA->log, "Issuing open on %s\t %s\n", path, r_path);
+  LOG (FUSE_DATA->log, "Issuing open on %s\n", path);
+  fflush (FUSE_DATA->log);
 
-  fd = open (r_path, fi->flags);
-  if (fd < 0)
-    ret_val = ERR;
-  fi->fh = fd;
+  char *msg = calloc (MAX_MESSAGE_SIZE, sizeof(char));
+  int msg_offset = 0;
+
+  msg_offset += add_string_token (SYS_OPEN, strlen(SYS_OPEN), msg + msg_offset);
+  msg_offset += add_string_token (path, strlen(path), msg + msg_offset);
+  msg_offset += add_token (&fi->flags, sizeof(fi->flags), msg + msg_offset);
+  strict_write (FUSE_DATA->sfd, msg, msg_offset +1);
+
+  strict_read (FUSE_DATA->sfd, msg, sizeof(ret_status) + sizeof(C_DELIM) + sizeof(N_DELIM));
+  ret_status = *(int*)next_token (&msg, sizeof(int));
 
   LOG (FUSE_DATA->log, "Completed open\n");
-  return ret_val;
+  fflush (FUSE_DATA->log);
+
+  return ret_status;
 }
 
 int client_read(const char *path, char *buf, size_t size, off_t offset, struct fuse_file_info *fi)
 {
-  char r_path[MAXLEN];
-  int ret_val = 0;
+  // TODO what is buf size? what if it's too small? who's responsible?
+  int ret_status;
 
-  gen_real_path (r_path, path);
-  LOG (FUSE_DATA->log, "Issuing read on %s\t%s\n", path, r_path);
-  ret_val = pread (fi->fh, buf, size, offset);
+  LOG (FUSE_DATA->log, "Issuing read on %s\n", path);
+  fflush (FUSE_DATA->log);
 
-  LOG (FUSE_DATA->log, "Completed read\n");
-  return ret_val;
+  char *msg = calloc (MAX_MESSAGE_SIZE, sizeof(char));
+  int msg_offset = 0;
+
+  msg_offset += add_string_token (SYS_READ, strlen(SYS_READ), msg + msg_offset);
+  msg_offset += add_string_token (path, strlen(path), msg + msg_offset);
+  msg_offset += add_token (&size, sizeof(size), msg + msg_offset);
+  msg_offset += add_token (&offset, sizeof(offset), msg + msg_offset);
+
+  strict_write (FUSE_DATA->sfd, msg, msg_offset +1);
+
+  msg_offset = 0;
+  msg_offset += strict_read (FUSE_DATA->sfd, msg + msg_offset, sizeof(int) + sizeof(C_DELIM));
+  int len = *(int*) (msg + offset - sizeof(int) - sizeof(C_DELIM));
+  msg_offset += strict_read (FUSE_DATA->sfd, msg + msg_offset, len + sizeof(C_DELIM));
+  msg_offset += strict_read (FUSE_DATA->sfd, msg + msg_offset, sizeof(N_DELIM));
+
+  ret_status = len;
+
+  LOG (FUSE_DATA->log, "Completed read with status %d\n\n", ret_status);
+  fflush (FUSE_DATA->log);
+
+  return ret_status;
 }
 
 int client_write(const char *path, const char *buf, size_t size, off_t offset, struct fuse_file_info *fi)
@@ -167,37 +186,66 @@ int client_rmdir(const char *path)
 
 int client_opendir(const char *path, struct fuse_file_info *fi)
 {
-  DIR* dir_ptr;
-  int ret_val = SUCC;
+  int ret_status;
 
-  LOG (FUSE_DATA->log, "Issuing opendir on %s\t%s\n", path, r_path);
+  LOG (FUSE_DATA->log, "Issuing opendir on %s\n", path);
+  fflush (FUSE_DATA->log);
 
-  dir_ptr = opendir (r_path);
-  if (dir_ptr == NULL)
-    ret_val = ERR;
-  fi->fh = (uint64_t)dir_ptr;
 
-  LOG (FUSE_DATA->log, "Completed opendir \n");
-  return ret_val;
+  char *msg = calloc (MAX_MESSAGE_SIZE, sizeof(char));
+  int msg_offset = 0;
+  msg_offset += add_string_token (SYS_OPENDIR, strlen(SYS_OPENDIR), msg + msg_offset);
+  msg_offset += add_string_token (path, strlen(path), msg + msg_offset);
+
+  strict_write (FUSE_DATA->sfd, msg, msg_offset +1);
+
+  msg_offset = 0;
+  msg_offset += strict_read (FUSE_DATA->sfd, msg + msg_offset, sizeof(int) + sizeof(C_DELIM) + sizeof (N_DELIM));
+  ret_status = *(int*)next_token (&msg, sizeof(int));
+
+  LOG (FUSE_DATA->log, "Completed opendir with status %d\n\n", ret_status);
+  fflush (FUSE_DATA->log);
+
+  return ret_status;
 }
 
 int client_readdir(const char *path, void *buf, fuse_fill_dir_t filler, off_t offset, struct fuse_file_info *fi)
 {
-  DIR* dir_ptr;
-  char r_path[MAXLEN];
-  struct dirent* dir_ent;
-  int ret_val = SUCC;
+  int ret_status = SUCC;
 
-  gen_real_path (r_path, path);
-  LOG (FUSE_DATA->log, "Issuing opendir on %s\t%s\n", path, r_path);
+  LOG (FUSE_DATA->log, "Issuing readdir on %s\n", path);
+  fflush (FUSE_DATA->log);
 
-  dir_ptr = (DIR*) fi->fh;
-  while ((dir_ent = readdir (dir_ptr)) != NULL){
-    filler (buf, dir_ent->d_name, NULL, 0);
+  char *msg = calloc (MAX_MESSAGE_SIZE, sizeof(char)); // calloc does initialization to 0s
+  int msg_offset = 0;
+
+  msg_offset += add_string_token (SYS_READDIR, strlen(SYS_READDIR), msg + msg_offset);
+  msg_offset += add_string_token (path, strlen(path), msg + msg_offset);
+  msg_offset += add_token (&offset, sizeof(offset), msg + msg_offset);
+  strict_write (FUSE_DATA->sfd, msg, msg_offset +1);
+
+  msg_offset = 0;
+  strict_read (FUSE_DATA->sfd, msg, sizeof(int) + sizeof(C_DELIM));
+  int len = *(int*) msg;
+  strict_read (FUSE_DATA->sfd, msg, len + sizeof(N_DELIM)); //this +1 is VITAL!!!!!
+
+  char *d_name;
+  while (1) {
+    d_name = next_string_token (&msg);
+
+    LOG (FUSE_DATA->log, "Current recieved dir: %s\n", d_name);
+    fflush (FUSE_DATA->log);
+
+    if (strcmp(d_name, "") == 0)
+      break;
+
+    filler (buf, d_name, NULL, 0);
   }
 
-  LOG (FUSE_DATA->log, "completed readdir\n");
-  return ret_val;
+  LOG (FUSE_DATA->log, "completed readdir with status %d\n\n", ret_status);
+  fflush (FUSE_DATA->log);
+
+  return ret_status;
 }
 
 int client_unlink(const char *path)
